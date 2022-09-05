@@ -1,62 +1,47 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <title>Will's Site</title>
+  <base href="/" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
+
   <link rel="apple-touch-icon" sizes="180x180" href="/content/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/content/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/content/favicon-16x16.png">
   <link rel="manifest" href="/content/site.webmanifest">
-  <title>Will's Site</title>
-  <base href="/" />
-  
-  <!--Ads-->
- 
-  <!-- 3rd party -->
-  <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.4.1/bootstrap.min.js"></script>
+
   <!-- Site -->
-  <link href="/css/style.css?V=1" rel="stylesheet" />  
-  <script src="/js/main.js"></script>
+  <link href="/css/index.css?v=1" rel="stylesheet" />
+  <script src="/js/index.js?v=1"></script>
 </head>
+
 <body>
-  <a class="btn btn-outline-info" href="/resume-22-9-4.html" target="resume">Resume</a>
-  
-<div class='row no-gutters'>
-  <div class='col-md-6 col-12 mb-2'>
-    <div class='jumbotron text-center'>
-      <h1>My Apps</h1>
-    </div>
-    <div class='container'>
-      <div class='mb-2'>
-        <a class='btn btn-primary w-100 text-center' href='javascript:window.location.reload(true)'>Will's Site</a>
-      </div>
-      <div class='mb-2'>
-        <a class='btn btn-primary w-100 text-center' href='CassandrasCookbook'>Cassandra's Cookbook</a>
-      </div>
-      <div class='mb-2'>
-        <a class='btn btn-primary w-100 text-center' href='WillsTools'>Will's Tools</a>
-      </div>
-    </div>
-  </div>
-  <div class='col-md-6 col-12'>
-    <div class='jumbotron text-center'>
-      <h1>My Sources</h1>
-    </div>
-    <div class='container'>
-      <div class='mb-2'>
-        <a class='btn btn-secondary w-100 text-center' href='https://github.com/willherr/willherr.github.io'>Will's Site's Source</a>
-      </div>
-      <div class='mb-2'>
-        <a class='btn btn-secondary w-100 text-center' href='https://github.com/willherr/CassandrasCookbook'>Cassandra's Cookbook's Source</a>
-      </div>
-      <div class='mb-2'>
-        <a class='btn btn-secondary w-100 text-center' href='https://github.com/willherr/WillsTools'>Will's Tools's Source</a>
-      </div>
-    </div>
-  </div>
-</div>
+  <header>
+    <a href="/">
+      <h1>Will's Site</h1>
+    </a>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="/about-william-herrmann.html" title="This page without the navbar">About Me</a>
+        </li>
+        <li>
+          <a href="/CassandrasCookbook">Cassandra's Cookbook</a>
+        </li>
+        <li>
+          <a href="/WillsTools">Will's Tools</a>
+        </li>
+        <li>
+          <a href="/Angular-RouteReuseStrategy" title="Proof of Concept">PoC</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <iframe src="/about-william-herrmann.html" title="About William Herrmann"></iframe>
 </body>
+
 </html>
