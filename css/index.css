@@ -1,5 +1,5 @@
-@import '/css/_variables.css';
-@import '/css/_styles.css';
+@import '/css/_variables.css?v=2';
+@import '/css/_styles.css?v=2';
 
 body {
     display: flex;
