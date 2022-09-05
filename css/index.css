@@ -1,0 +1,62 @@
+@import '_variables.css';
+@import '_styles.css';
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+
+    z-index: 1;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: var(--primary-contrast);
+    box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header a:hover {
+    color: var(--accent-color);
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+nav ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 .25rem var(--primary-color), 0 0 .5rem var(--primary-color), 0 0 .75rem var(--primary-color), 0 0 1rem var(--primary-color);
+    }
+
+    to {
+        text-shadow: 0 0 .5rem var(--accent-color), 0 0 .75rem var(--accent-color), 0 0 1rem var(--accent-color), 0 0 1.25rem var(--accent-color);
+    }
+}
+
+iframe {
+    flex-grow: 1;
+    border: none;
+    margin: 0;
+    padding: 0;
+}

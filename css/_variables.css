@@ -1,0 +1,6 @@
+body {
+    --primary-color: steelblue;
+    --primary-contrast: #f5f5f5;
+    --accent-color: #e5e5ff;
+    --accent-contrast: darkslategray;
+}
