@@ -17,7 +17,7 @@ This is a work in progress to migrate my wife's (Cassandra's) cookbook to be an 
 One day, I hope to put a database on the backend, instead of a JSON file to house the recipe data.
 
 ### [Will's Tools](https://will-i-am.dev/WillsTools) 
-[Source Code](https://github.com/willherr/WillTools) | `Blazor WASM`
+[Source Code](https://github.com/willherr/WillsTools) | `Blazor WASM`
 
 A project dedicated to providing useful tools:
   - Randomizer
