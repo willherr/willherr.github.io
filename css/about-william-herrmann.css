@@ -39,6 +39,7 @@ header img {
 /* contact-info */
 .contact-info {
     margin: 1rem -.5in;
+    padding: 0 .5in;
     line-height: 2rem;
     background-color: var(--accent-color);
 }
@@ -56,15 +57,17 @@ header img {
     text-decoration: none;
 }
 
-/* utilities */
-.row {
+.contact-info .row {
     display: flex;
     flex-wrap: wrap;
+    white-space: nowrap;
 }
 
-.row>* {
+.contact-info .row>* {
     flex: 1;
+    padding: 0 10px;
 }
+
 
 .justify-between {
     display: flex;
