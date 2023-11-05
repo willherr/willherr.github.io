@@ -32,9 +32,27 @@ header img {
     box-shadow: 5px 5px 2px var(--primary-color);
 }
 
+h1.title {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    display: flex;
+    justify-content: end;
+    color: dimgray;
+}
+
+span.br {
+    display: block;
+    padding: .25rem 0;
+}
+
 .subtitle {
     color: var(--primary-color);
 }
+
 
 /* contact-info */
 .contact-info {
@@ -73,10 +91,4 @@ header img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-footer {
-    display: flex;
-    justify-content: end;
-    color: dimgray;
 }
