@@ -38,6 +38,10 @@ h1.title {
     justify-content: space-between;
 }
 
+h2 {
+    margin-bottom: 0;
+}
+
 footer {
     display: flex;
     justify-content: end;
@@ -51,6 +55,7 @@ span.br {
 
 .subtitle {
     color: var(--primary-color);
+    margin-bottom: 0;
 }
 
 
@@ -90,5 +95,5 @@ span.br {
 .justify-between {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
