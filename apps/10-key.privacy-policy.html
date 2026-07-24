@@ -2,24 +2,181 @@
 <html lang="en">
 
 <head>
-  <title>10-Key Calculator | Privacy Policy</title>
+  <title>10-Key Calculator Privacy Policy</title>
   <base href="/" />
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/content/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/content/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/content/favicon-16x16.png">
   <link rel="manifest" href="/content/site.webmanifest">
+
+  <link href="/css/_variables.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: monospace;
+      margin: 0;
+      min-height: 100vh;
+      background: #EEF1E4;
+      color: #2A2E22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+      background: var(--primary-color);
+      color: var(--primary-contrast);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    header a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      color: var(--accent-color);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    main {
+      width: 100%;
+      max-width: 40rem;
+      box-sizing: border-box;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .card {
+      background: repeating-linear-gradient(
+        180deg,
+        #F4F6EC,
+        #F4F6EC 1.6rem,
+        #DCE8D3 1.6rem,
+        #DCE8D3 1.7rem
+      );
+      border: 1px solid #C9D6BE;
+      border-radius: 6px;
+      padding: 1.75rem 1.75rem 2rem;
+      box-shadow: 0 3px 5px -1px #0002, 0 6px 10px #00000014;
+    }
+
+    h2 {
+      margin: 0 0 0.25rem;
+      font-size: 1.4rem;
+      color: #24402F;
+    }
+
+    .meta {
+      margin: 0 0 1.5rem;
+      font-size: 0.85rem;
+      color: #4C5741;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 1.5rem 0 0.4rem;
+      color: #24402F;
+    }
+
+    p, li {
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 0.4rem 0;
+      padding-left: 1.3rem;
+    }
+
+    .summary {
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #4C5741;
+    }
+
+    footer a {
+      color: var(--primary-color);
+    }
+  </style>
 </head>
 
 <body>
-  <h1>10-Key Calculator Privacy Policy</h1>
-  
-  <p>
-    This app does not collect, nor does it store, share, or ask for any personal data of you or any other user.
-    Your privacy is kept completely private.
-  </p>
+  <header>
+    <a href="/">
+      <h1>Will's Site</h1>
+    </a>
+    <a href="/" title="Back to will-i-am.dev">← Home</a>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>10-Key Calculator Privacy Policy</h2>
+      <p class="meta">Effective July 24, 2026</p>
+
+      <p class="summary">
+        10-Key Calculator does not collect, share, sell, or transmit any of your data.
+        Everything the app stores stays on your own device.
+      </p>
+
+      <h3>What the app stores, and where</h3>
+      <p>
+        Your calculation history and your app settings (such as tax rate or decimal places)
+        are saved only in local files on your device. Nothing you enter into the app is ever
+        sent anywhere, including to the developer.
+      </p>
+
+      <h3>What the app does not do</h3>
+      <ul>
+        <li>No account or sign-in of any kind</li>
+        <li>No analytics or usage tracking</li>
+        <li>No ads or ad networks</li>
+        <li>No access to contacts, location, camera, or other device data</li>
+        <li>No data shared with third parties</li>
+      </ul>
+
+      <h3>Permissions</h3>
+      <p>
+        The published app requests no device permissions. (An internet permission appears
+        only in development builds used for testing, and is not part of the app you install
+        from Google Play.)
+      </p>
+
+      <h3>Changes to this policy</h3>
+      <p>
+        If this policy ever changes, the update will be posted on this page with a new
+        effective date above.
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        Questions about this policy can be sent to
+        <a href="mailto:me@will-i-am.dev">me@will-i-am.dev</a>.
+      </p>
+    </div>
+
+    <footer>
+      10-Key Calculator is developed by William Herrmann (Will-i-am.dev).
+    </footer>
+  </main>
 </body>
 
 </html>
