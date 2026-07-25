@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>10-Key Calculator</title>
+  <base href="/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A simple adding-machine calculator with a paper tape, built for accountants." />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/content/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/content/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/content/favicon-16x16.png">
+  <link rel="manifest" href="/content/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Exact tokens from AppColors.light (cassandras_10_key/lib/ui/app_theme.dart)
+         — this page and the privacy policy page are themed directly off the
+         real app palette, not an approximation of it. */
+      --bg: #E6E3D8;
+      --bg-soft: #EEEBDF;
+      --chassis: #E9E4D3;
+      --chassis-panel: #DED7C2;
+      --chassis-line: #C7BFA5;
+      --paper: #F4F6EC;
+      --paper-stripe: #DCE8D3;
+      --paper-edge: #C9D6BE;
+      --paper-ink: #23281B;
+      --ink: #23281B;
+      --ink-soft: #5B6653;
+      --ink-faint: #8A9280;
+      --accent: #2F6F5E;
+      --accent-strong: #1E4F42;
+      --accent-ink: #F4F6EC;
+      --warn: #B5432E;
+      --brass: #A97A34;
+      --brass-soft: #E6D3AC;
+      --brass-ink: #2B2415;
+      --shadow: rgba(35, 40, 27, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .tape-font { font-family: 'Courier Prime', monospace; }
+
+    /* Shared top bar — identical markup/CSS on this page and the privacy
+       policy page, per Will's request that the two link to each other with
+       a consistent header rather than each being an island. */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--chassis);
+      border-bottom: 1px solid var(--chassis-line);
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px 6px 8px;
+      background: var(--chassis-panel);
+      border-radius: 100px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.4px;
+      color: var(--ink);
+    }
+
+    .brand-pill img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .topnav a {
+      color: var(--ink-soft);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .topnav a.active {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+
+    main {
+      width: 100%;
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+      box-sizing: border-box;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+    }
+
+    .hero img.icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin: 0 0 0.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 .plus {
+      color: var(--accent-strong);
+    }
+
+    .hero p.tagline {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 34rem;
+      line-height: 1.5;
+      margin: 0 0 1.75rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--chassis-line);
+    }
+
+    /* Reused "greenbar ledger" card treatment from the privacy policy page:
+       a repeating horizontal stripe + punched-hole left edge, mirroring the
+       app's own real tape rendering (lib/ui/tape.dart / tape_punch_holes.dart) */
+    .card {
+      --line: 28px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--paper);
+      background-image: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent calc(var(--line) - 1px),
+        var(--paper-stripe) calc(var(--line) - 1px),
+        var(--paper-stripe) var(--line)
+      );
+      background-position-y: 3px;
+      border: 1px solid var(--paper-edge);
+      border-radius: 6px;
+      padding: var(--line) 1.5rem calc(var(--line) * 1.3) 2.6rem;
+      box-shadow: 0 3px 5px -1px rgba(0,0,0,0.13), 0 6px 10px rgba(0,0,0,0.08);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1.1rem;
+      background-image: radial-gradient(circle, var(--chassis-panel) 2.4px, transparent 2.5px);
+      background-size: 100% var(--line);
+      background-position: center 3px;
+    }
+
+    /* Sample tape lines — same three amount conventions/colors the real app
+       uses (History.widget()/tapeAmountSpan: + is accent, - is warn, T is
+       accentStrong, # is brass), not invented colors for this page. */
+    .tape-demo .tape-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 1rem;
+      line-height: var(--line);
+      color: var(--paper-ink);
+    }
+
+    .tape-demo .tape-line .label {
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+    }
+
+    .tape-demo .mark-add { color: var(--accent); font-weight: 700; }
+    .tape-demo .mark-sub { color: var(--warn); font-weight: 700; }
+    .tape-demo .mark-total { color: var(--accent-strong); font-weight: 700; }
+    .tape-demo .divider {
+      border: none;
+      border-top: 2px solid var(--accent);
+      margin: 6px 0;
+    }
+    .tape-demo .total-row { font-weight: 700; }
+
+    section.features {
+      margin-top: 3rem;
+    }
+
+    section.features h2 {
+      font-size: 1.4rem;
+      margin: 0 0 1.25rem;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1rem;
+    }
+
+    .tier-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--chassis-line);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+    }
+
+    .tier-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tier-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: var(--brass-soft);
+      color: var(--brass-ink);
+    }
+
+    .tier-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .tier-card li strong { color: var(--ink); }
+
+    section.shots {
+      margin-top: 3rem;
+    }
+
+    .shot-row {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .shot-row img {
+      height: 420px;
+      border-radius: 14px;
+      border: 1px solid var(--chassis-line);
+      box-shadow: 0 6px 16px var(--shadow);
+      flex-shrink: 0;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: var(--ink-soft);
+    }
+
+    footer a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.7rem; }
+      .shot-row img { height: 320px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand-pill" href="/apps/10-key.html">
+      <img src="/apps/10-key-assets/icon-512.png" alt="" />
+      10-KEY
+    </a>
+    <nav class="topnav">
+      <a href="/apps/10-key.html" class="active">Home</a>
+      <a href="/apps/10-key.privacy-policy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="icon" src="/apps/10-key-assets/icon-512.png" alt="10-Key Calculator icon" />
+      <h1>10-Key<span class="plus">+</span> Calculator</h1>
+      <p class="tagline">
+        A simple adding-machine calculator with a paper tape, built for accountants.
+        Type numbers, hit plus or minus, and watch a running total build on a scrolling
+        ledger tape, just like the printing calculators used for decades in bookkeeping.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=dev.will_i_am.tenkey">
+          Get it on Google Play
+        </a>
+        <a class="btn btn-secondary" href="/apps/10-key.privacy-policy.html">
+          Read the privacy policy
+        </a>
+      </div>
+    </section>
+
+    <div class="card tape-demo">
+      <div class="tape-line">
+        <span class="label">Groceries</span>
+        <span class="tape-font">124.50 <span class="mark-add">+</span></span>
+      </div>
+      <div class="tape-line">
+        <span class="label">Rent</span>
+        <span class="tape-font">1,200.00 <span class="mark-sub">&minus;</span></span>
+      </div>
+      <div class="tape-line">
+        <span class="label">Client invoice</span>
+        <span class="tape-font">2,450.00 <span class="mark-add">+</span></span>
+      </div>
+      <hr class="divider" />
+      <div class="tape-line total-row">
+        <span></span>
+        <span class="tape-font">1,125.50 <span class="mark-total">T</span></span>
+      </div>
+    </div>
+
+    <section class="features">
+      <h2>Free and 10-Key+</h2>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <h3>10-Key (Free)</h3>
+          <ul>
+            <li><strong>+</strong> and <strong>&minus;</strong> keep a running total</li>
+            <li>A scrolling ledger tape of every entry</li>
+            <li>No ads, no account, no unnecessary permissions</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <h3>10-Key+ <span class="tier-tag">PLUS</span></h3>
+          <ul>
+            <li><strong>&times;</strong> and <strong>&divide;</strong> for quick math on the fly</li>
+            <li><strong>TAX+ / TAX&minus;</strong>, <strong>FEED</strong>, and reference numbers</li>
+            <li>Label any entry, edit or delete any line</li>
+            <li>Save named tapes and switch between them</li>
+            <li>Optional <strong>Cloud Sync</strong> backup to your own Google Drive</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="shots">
+      <h2 style="font-size:1.4rem;margin:0 0 1.25rem;">See it in action</h2>
+      <div class="shot-row">
+        <img src="/apps/10-key-assets/screenshot-free.png" alt="10-Key Free tier, empty tape" />
+        <img src="/apps/10-key-assets/screenshot-plus-keypad.png" alt="10-Key+ keypad with multiply, divide, tax, and FEED keys" />
+        <img src="/apps/10-key-assets/screenshot-plus-labels.png" alt="10-Key+ tape with labeled entries for budgeting, invoicing, and tax estimates" />
+      </div>
+    </section>
+
+    <footer>
+      10-Key Calculator is developed by William Herrmann (Will-i-am.dev)
+      &middot; <a href="https://github.com/willherr" target="_blank" rel="noopener">GitHub</a>
+      &middot; <a href="https://www.linkedin.com/in/will-herrmann-155a09103/" target="_blank" rel="noopener">LinkedIn</a>
+    </footer>
+  </main>
+</body>
+
+</html>
