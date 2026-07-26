@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>10-Key Calculator Privacy Policy</title>
+  <title>10-Key Calculator Terms of Service</title>
   <base href="/" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,8 +34,9 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* Shared top bar — identical markup/CSS to apps/10-key.html, so the two
-       pages read as one consistent site instead of separate islands. */
+    /* Shared top bar — identical markup/CSS to apps/10-key.html and
+       apps/10-key.privacy-policy.html, so all three pages read as one
+       consistent site instead of separate islands. */
     .topbar {
       display: flex;
       align-items: center;
@@ -112,9 +113,7 @@
     }
 
     /* Punch-hole column down the left edge, same pattern as the app's own
-       tape (lib/ui/tape_punch_holes.dart / TapePunchHoles): a tiling
-       radial-gradient "punching" chassisPanel-colored circles into the
-       paper. */
+       tape (lib/ui/tape_punch_holes.dart / TapePunchHoles). */
     .card::before {
       content: "";
       position: absolute;
@@ -163,10 +162,6 @@
       font-weight: bold;
     }
 
-    /* The global `a { color: inherit }` reset above (added for the topbar/
-       brand-pill links) flattened the Contact section's mailto link into
-       indistinguishable plain text — this restores a visible, on-theme
-       link treatment for any prose link inside the card. */
     .card a {
       color: #2F6F5E;
       text-decoration: underline;
@@ -194,70 +189,81 @@
     </a>
     <nav class="topnav">
       <a href="/apps/10-key.html">Home</a>
-      <a href="/apps/10-key.privacy-policy.html" class="active">Privacy Policy</a>
-      <a href="/apps/10-key.terms-of-service.html">Terms of Service</a>
+      <a href="/apps/10-key.privacy-policy.html">Privacy Policy</a>
+      <a href="/apps/10-key.terms-of-service.html" class="active">Terms of Service</a>
     </nav>
   </header>
   <main>
     <div class="card">
-      <h2>10-Key Calculator Privacy Policy</h2>
+      <h2>10-Key Calculator Terms of Service</h2>
       <p class="meta">Effective July 26, 2026</p>
 
       <p class="summary">
-        10-Key Calculator does not collect, share, or sell your data. Everything the app
-        stores stays on your own device, unless you turn on the optional Cloud Backup
-        feature described below.
+        By downloading or using 10-Key Calculator, you agree to these terms. If you
+        don't agree, please don't use the app.
       </p>
 
-      <h3>What the app stores, and where</h3>
+      <h3>The app</h3>
       <p>
-        Your calculation history and your app settings (such as tax rate or decimal places)
-        are saved only in local files on your device. Nothing you enter into the app is sent
-        anywhere, including to the developer, unless you turn on Cloud Backup.
+        10-Key Calculator is an adding-machine style calculator app with a free tier
+        and an optional paid tier, 10-Key+. You can use the free tier for as long as
+        you like at no cost.
       </p>
 
-      <h3>Cloud Backup (optional, off by default)</h3>
+      <h3>10-Key+ purchase</h3>
       <p>
-        10-Key+ has an optional Cloud Backup feature. It is off unless you turn it on
-        yourself in Settings. When you turn it on:
+        10-Key+ is unlocked with a single, one-time purchase through Google Play.
+        It is not a subscription: you're never billed again for it, and it doesn't
+        expire.
       </p>
       <ul>
-        <li>You sign in with your own Google account.</li>
+        <li>The purchase is processed entirely by Google Play, not by the developer directly.</li>
+        <li>The current price is shown in the app and on the Google Play listing before you buy.</li>
         <li>
-          Your saved tapes are backed up to a hidden, app-only folder in your own Google
-          Drive. This folder is not visible in your regular Google Drive and cannot be
-          opened by any other app.
+          Refunds are handled by Google Play under their own refund policy, not by the
+          developer. If you want a refund, request one through Google Play.
         </li>
-        <li>Only you can see this data. The developer never has access to it.</li>
-        <li>No data other than your tape contents is sent to Google for this feature.</li>
-        <li>You can turn Cloud Backup off at any time in Settings.</li>
+        <li>
+          Purchasing 10-Key+ unlocks its features on this app. It does not transfer any
+          ownership of the app itself, and it doesn't include or promise any future
+          feature beyond what's already in the app when you buy it.
+        </li>
       </ul>
 
-      <h3>What the app does not do</h3>
-      <ul>
-        <li>No account or sign-in unless you turn on Cloud Backup yourself</li>
-        <li>No analytics or usage tracking</li>
-        <li>No ads or ad networks</li>
-        <li>No access to contacts, location, camera, or other device data</li>
-        <li>No data shared with third parties, other than your own Google Drive if you turn on Cloud Backup</li>
-      </ul>
-
-      <h3>Permissions</h3>
+      <h3>Your data</h3>
       <p>
-        The published app requests network access, used only for the optional Cloud Backup
-        feature above. If you never turn on Cloud Backup, the app makes no network
-        connections at all.
+        What the app collects and stores, and how the optional Cloud Backup feature
+        works, is covered in the
+        <a href="/apps/10-key.privacy-policy.html">Privacy Policy</a>, not repeated here.
       </p>
 
-      <h3>Changes to this policy</h3>
+      <h3>Using the app</h3>
       <p>
-        If this policy ever changes, the update will be posted on this page with a new
-        effective date above.
+        10-Key Calculator is a general-purpose calculation tool. It's provided to help
+        you total numbers and keep a record of them, but you're responsible for
+        checking your own results, especially for anything that matters, like taxes,
+        invoices, or financial records. The app is provided "as is," without any
+        warranty that it will be error-free or uninterrupted.
+      </p>
+
+      <h3>Limitation of liability</h3>
+      <p>
+        To the extent allowed by law, the developer isn't liable for any indirect,
+        incidental, or consequential damages arising from your use of the app,
+        including any loss of data or miscalculation. Nothing here limits any
+        liability that can't be limited under applicable law.
+      </p>
+
+      <h3>Changes to these terms</h3>
+      <p>
+        If these terms ever change, the update will be posted on this page with a new
+        effective date above. Continuing to use the app after a change means you
+        accept the updated terms.
       </p>
 
       <h3>Contact</h3>
       <p>
-        Questions about this policy can be sent to
+        Questions about these terms can be sent to
         <a href="mailto:me@will-i-am.dev">me@will-i-am.dev</a>.
       </p>
     </div>
