@@ -121,22 +121,14 @@
       position: relative;
       overflow: hidden;
       background-color: #F4F6EC;
-      background-image: repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent calc(var(--line) - 1px),
-        #DCE8D3 calc(var(--line) - 1px),
-        #DCE8D3 var(--line)
-      );
-      background-position-y: 3px;
       border: 1px solid #C9D6BE;
       border-radius: 6px;
-      padding: var(--line) 1.75rem calc(var(--line) * 2) 2.6rem;
       box-shadow: 0 3px 5px -1px #0002, 0 6px 10px #00000014;
     }
 
     /* Punch-hole column down the left edge, same pattern as the app's own
-       tape (lib/ui/tape_punch_holes.dart / TapePunchHoles). */
+       tape (lib/ui/tape_punch_holes.dart / TapePunchHoles). Spans the
+       whole card (header + body), like a real punched page. */
     .card::before {
       content: "";
       position: absolute;
@@ -149,17 +141,36 @@
       background-position: center 3px;
     }
 
+    /* A blank header margin above the ruled area, like the unlined space
+       at the top of a real wide/college-ruled notebook page -- keeps the
+       big title out of the rule lines instead of a line cutting through
+       it. */
+    .card-header {
+      padding: 2.75rem 1.75rem 0.5rem 2.6rem;
+    }
+
+    .card-body {
+      background-image: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent calc(var(--line) - 1px),
+        #DCE8D3 calc(var(--line) - 1px),
+        #DCE8D3 var(--line)
+      );
+      background-position-y: 3px;
+      padding: var(--line) 1.75rem calc(var(--line) * 2) 2.6rem;
+    }
+
     h2 {
-      margin: 0;
+      margin: 0 0 0.4rem;
       font-size: 1.4rem;
-      line-height: calc(var(--line) * 2);
+      line-height: 1.3;
       color: #23281B;
     }
 
     .meta {
       margin: 0;
       font-size: 0.85rem;
-      line-height: var(--line);
       color: #5B6653;
     }
 
@@ -218,9 +229,11 @@
   </header>
   <main>
     <div class="card">
-      <h2>10-Key Calculator Terms of Service</h2>
-      <p class="meta">Effective July 26, 2026</p>
-
+      <div class="card-header">
+        <h2>10-Key Calculator Terms of Service</h2>
+        <p class="meta">Effective July 26, 2026</p>
+      </div>
+      <div class="card-body">
       <p class="summary">
         By downloading or using 10-Key Calculator, you agree to these terms. If you
         don't agree, please don't use the app.
@@ -289,6 +302,7 @@
         Questions about these terms can be sent to
         <a href="mailto:me@will-i-am.dev">me@will-i-am.dev</a>.
       </p>
+      </div>
     </div>
 
     <footer>
