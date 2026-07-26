@@ -34,12 +34,22 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* Shared top bar — identical markup/CSS to apps/10-key.html, so the two
-       pages read as one consistent site instead of separate islands. */
+    /* Shared top bar — identical markup/CSS across apps/10-key.html,
+       apps/10-key.privacy-policy.html, and apps/10-key.terms-of-service.html,
+       so all three pages read as one consistent site instead of separate
+       islands. flex-wrap lets the whole bar drop the nav to its own row on
+       narrow screens instead of squeezing the brand pill and each nav link
+       below their own content width, which used to make "10-KEY" and
+       "Privacy Policy"/"Terms of Service" each wrap mid-word into a ragged
+       multi-line mess on mobile — nowrap on the pill/links is what
+       actually prevents that, the row-wrap just gives them somewhere to
+       go instead. */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 8px;
       gap: 12px;
       padding: 14px 20px;
       background: #E9E4D3;
@@ -58,6 +68,7 @@
       font-size: 0.85rem;
       letter-spacing: 0.4px;
       color: #23281B;
+      white-space: nowrap;
     }
 
     .brand-pill img {
@@ -78,11 +89,24 @@
       color: #5B6653;
       padding: 4px 0;
       border-bottom: 2px solid transparent;
+      white-space: nowrap;
     }
 
     .topnav a.active {
       color: #23281B;
       border-bottom-color: #2F6F5E;
+    }
+
+    /* Below this width the brand pill + all three nav links no longer fit
+       on one row — let the bar wrap (above) and give the nav its own full
+       row, evenly spaced, rather than a fixed gap that could still crowd
+       three items on a very narrow phone. */
+    @media (max-width: 480px) {
+      .topnav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
     }
 
     main {

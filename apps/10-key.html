@@ -58,13 +58,22 @@
 
     .tape-font { font-family: 'Courier Prime', monospace; }
 
-    /* Shared top bar — identical markup/CSS on this page and the privacy
-       policy page, per Will's request that the two link to each other with
-       a consistent header rather than each being an island. */
+    /* Shared top bar — identical markup/CSS on this page, the privacy
+       policy page, and the terms of service page, per Will's request that
+       all three link to each other with a consistent header rather than
+       each being an island. flex-wrap lets the whole bar drop the nav to
+       its own row on narrow screens instead of squeezing the brand pill
+       and each nav link below their own content width, which used to make
+       "10-KEY" and "Privacy Policy"/"Terms of Service" each wrap mid-word
+       into a ragged multi-line mess on mobile — nowrap on the pill/links
+       is what actually prevents that, the row-wrap just gives them
+       somewhere to go instead. */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 8px;
       gap: 12px;
       padding: 14px 20px;
       background: var(--chassis);
@@ -82,6 +91,7 @@
       font-size: 0.85rem;
       letter-spacing: 0.4px;
       color: var(--ink);
+      white-space: nowrap;
     }
 
     .brand-pill img {
@@ -102,11 +112,24 @@
       color: var(--ink-soft);
       padding: 4px 0;
       border-bottom: 2px solid transparent;
+      white-space: nowrap;
     }
 
     .topnav a.active {
       color: var(--ink);
       border-bottom-color: var(--accent);
+    }
+
+    /* Below this width the brand pill + all three nav links no longer fit
+       on one row — let the bar wrap (above) and give the nav its own full
+       row, evenly spaced, rather than a fixed gap that could still crowd
+       three items on a very narrow phone. */
+    @media (max-width: 480px) {
+      .topnav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
     }
 
     main {
@@ -174,12 +197,6 @@
     .btn-primary {
       background: var(--accent);
       color: var(--accent-ink);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--chassis-line);
     }
 
     /* Reused "greenbar ledger" card treatment from the privacy policy page:
@@ -372,9 +389,6 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=dev.will_i_am.tenkey">
           Get it on Google Play
-        </a>
-        <a class="btn btn-secondary" href="/apps/10-key.privacy-policy.html">
-          Read the privacy policy
         </a>
       </div>
     </section>
