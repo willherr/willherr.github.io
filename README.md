@@ -10,11 +10,10 @@ This is my main landing page. For now, I will be using it as an about/resume/pro
 The content below the navbar is an `iframe` of the [About Me](https://will-i-am.dev/about-william-herrmann.html) page.
   - I may do something else on this home page in the future.
 
-### [Cassandra's Cookbook](https://will-i-am.dev/CassandrasCookbook) 
-[Source Code](https://github.com/willherr/CassandrasCookbook) | `Blazor WASM`
+### Cassandra's Cookbook
+[Source Code](https://github.com/willherr/CassandrasCookbook) | `Flutter`
 
-This is a work in progress to migrate my wife's (Cassandra's) cookbook to be an only and easy to use and share version of it.
-One day, I hope to put a database on the backend, instead of a JSON file to house the recipe data.
+A social recipe-sharing app — a place to store your own cookbooks and share recipes with others. Originally a small Blazor WASM viewer hosted here; rewritten from scratch in Flutter with a real backend (Cloudflare Workers + D1), now living in its own repo. Not yet publicly deployed — watch the repo for its eventual live URL.
 
 ### [Will's Tools](https://will-i-am.dev/WillsTools) 
 [Source Code](https://github.com/willherr/WillsTools) | `Blazor WASM`
