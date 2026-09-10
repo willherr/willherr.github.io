@@ -22,11 +22,11 @@ This file will need a real pass once #13 actually lands — don't write detailed
 
 ## Dev workflow
 
-- **Default branch is `master`, not `main`** — unlike Will's other repos (Cardwright was explicitly renamed `master` → `main` in 2026-08-08; this repo hasn't been). GitHub Pages' publish source is bound to `master` specifically (confirmed via `gh api repos/willherr/willherr.github.io/pages`), so renaming isn't a pure git-branch-rename — it would need the Pages source re-pointed too, with real risk of site downtime if done carelessly. Don't rename unilaterally; flag it to Will if the `main`/`master` inconsistency ever needs resolving.
-- Feature/content work branches off `master` (pull latest first), gets a real PR even solo — never committed straight to `master`.
+- Default branch is `main` (renamed from `master` 2026-09-10 via GitHub's branch-rename API, matching every other repo of Will's except 10-Key which is already `main`). GitHub Pages' publish source was bound to `master` by name — the rename API repointed it to `main` automatically (verified live, `will-i-am.dev` served correctly immediately after), so this needed no manual Pages reconfiguration, but any *future* branch rename in a repo with GitHub Pages enabled should still verify the live site afterward rather than assuming it carried over.
+- Feature/content work branches off `main` (pull latest first), gets a real PR even solo — never committed straight to `main`.
 - Branch naming: `issue#<N>/PascalTitle` (literal `#`, issue number, `/`, then a Pascal-case short title). Quote branch names containing `#` in shell commands.
 - Backlog/direction lives in GitHub Issues, not an internal markdown doc.
-- **Exception: non-application changes — CLAUDE.md updates chief among them — can be committed straight to `master`, no branch/PR needed** (same carve-out every other repo of Will's uses).
+- **Exception: non-application changes — CLAUDE.md updates chief among them — can be committed straight to `main`, no branch/PR needed** (same carve-out every other repo of Will's uses).
 - **Issue labels**: `brainstorming`/`needs decision`/`priority: high/medium/low` — the cross-repo convention, see `~/.claude/notes/issue-labels.md` for the full scheme. No release-grouping labels (`release-mvp` etc.) here — those are specific to CassandrasCookbook's pre-launch product, not applicable to this site.
 - No PR gets created, and no PR gets merged, without Will's explicit confirmation first — same global rule as every other repo (`~/.claude/CLAUDE.md`).
 
