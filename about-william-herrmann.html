@@ -161,6 +161,18 @@
             <i>Last updated on 11/5/2023</i>
         </footer>
     </div>
+
+    <!-- Cloudflare Web Analytics: only when loaded directly, not inside index.html's iframe, to avoid double-counting homepage visits -->
+    <script>
+        if (window.self === window.top) {
+            var cfBeacon = document.createElement('script');
+            cfBeacon.type = 'module';
+            cfBeacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            cfBeacon.setAttribute('data-cf-beacon', '{"token": "4d72da7d2e6e4f7597ea4574a144dad4"}');
+            document.body.appendChild(cfBeacon);
+        }
+    </script>
+    <!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>
