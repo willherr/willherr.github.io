@@ -2,52 +2,144 @@
 <html lang="en">
 
 <head>
-  <title>Will's Site</title>
+  <title>will-i-am.dev: Indie App Studio</title>
   <base href="/" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Small, focused apps, built solo by Will Herrmann." />
+  <meta name="google-adsense-account" content="ca-pub-6660309678032478">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/content/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/content/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/content/favicon-16x16.png">
   <link rel="manifest" href="/content/site.webmanifest">
 
-  <link href="/css/index.css?v=2" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="/css/index.css?v=3" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <a href="/">
-      <h1>Will's Site</h1>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/content/nav-mark.png" width="34" height="34" alt="" />
+      <span class="brand-name">will-i-am.dev</span>
     </a>
 
     <nav>
       <ul>
-        <li>
-          <a href="/about-william-herrmann.html" title="This page without the navbar">About Me</a>
-        </li>
-        <li>
-          <a href="https://10-key.will-i-am.dev/">10-Key</a>
-        </li>
-        <li>
-          <a href="/CassandrasCookbook">Cassandra's Cookbook</a>
-        </li>
-        <li>
-          <a href="/WillsTools">Will's Tools</a>
-        </li>
-        <li>
-          <a href="/Angular-RouteReuseStrategy" title="Proof of Concept">PoC</a>
-        </li>
-        <li>
-          <a href="https://github.com/willherr/willherr.github.io" target="github" title="View my website source code">
-            GitHub ↗
-          </a>
-        </li>
+        <li><a href="/about-william-herrmann.html">About</a></li>
+        <li><a href="https://github.com/willherr" target="github" title="View my projects on GitHub">GitHub ↗</a></li>
       </ul>
     </nav>
   </header>
 
-  <iframe src="/about-william-herrmann.html" title="About William Herrmann" width="100%"></iframe>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">An indie app studio</p>
+
+      <h1 class="wordmark">
+        <img src="/content/wordmark-3groups.png" alt="will-i-am.dev" />
+      </h1>
+
+      <p class="tagline">Small, focused apps, built solo.</p>
+    </section>
+
+    <section class="apps">
+      <h2>What I'm building</h2>
+
+      <div class="app-grid">
+        <article class="app-card app-card--live">
+          <div class="app-icon app-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <rect x="7" y="5" width="10" height="4" rx="1"></rect>
+              <circle cx="8" cy="13" r="0.7" fill="currentColor" stroke="none"></circle>
+              <circle cx="12" cy="13" r="0.7" fill="currentColor" stroke="none"></circle>
+              <circle cx="16" cy="13" r="0.7" fill="currentColor" stroke="none"></circle>
+              <circle cx="8" cy="17" r="0.7" fill="currentColor" stroke="none"></circle>
+              <circle cx="12" cy="17" r="0.7" fill="currentColor" stroke="none"></circle>
+              <circle cx="16" cy="17" r="0.7" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </div>
+          <p class="badge badge--green">Available now</p>
+          <h3>10-Key Calculator</h3>
+          <p class="app-desc">A simple adding-machine calculator with a paper tape, built for accountants.</p>
+          <p class="app-note">Free to try</p>
+          <a class="btn btn--primary" href="https://10-key.will-i-am.dev/">Try 10-Key ↗</a>
+        </article>
+
+        <article class="app-card app-card--soon">
+          <div class="app-icon app-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5c2-1.2 5-1.2 7 0v14c-2-1.2-5-1.2-7 0V5z"></path>
+              <path d="M20 5c-2-1.2-5-1.2-7 0v14c2-1.2 5-1.2 7 0V5z"></path>
+            </svg>
+          </div>
+          <p class="badge badge--blue">In development</p>
+          <h3>Cassandra's Cookbook</h3>
+          <p class="app-desc">A social recipe-sharing app: a place to store your own cookbooks and share recipes with
+            others.</p>
+          <p class="app-status">Launching soon</p>
+        </article>
+
+        <article class="app-card app-card--soon">
+          <div class="app-icon app-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="13" height="16" rx="2" transform="rotate(-8 9.5 14)"></rect>
+              <path d="M9 10l1.2 3.6L14 15l-3.8 1.4L9 20l-1.2-3.6L4 15l3.8-1.4z"></path>
+            </svg>
+          </div>
+          <p class="badge badge--blue">In development</p>
+          <h3>Cardwright</h3>
+          <p class="app-desc">A rule-driven, multi-game card game engine. Euchre is the first fully playable game, with more to come.</p>
+          <p class="app-status">Launching soon</p>
+        </article>
+
+        <article class="app-card app-card--planning">
+          <div class="app-icon app-icon--muted" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20s-7-4.35-7-9.5C5 7.42 7.24 5 10 5c1.54 0 2.94.8 3.5 2.09C13.06 5.8 14.46 5 16 5c2.76 0 5 2.42 5 5.5C21 15.65 12 20 12 20z"></path>
+            </svg>
+          </div>
+          <p class="badge badge--muted">Early planning</p>
+          <h3>Sprint for a Cause</h3>
+          <p class="app-desc">An open project board connecting nonprofits with volunteer software engineers and students.</p>
+          <p class="app-status app-status--muted">Not yet built</p>
+        </article>
+
+        <article class="app-card app-card--placeholder">
+          <div class="app-icon app-icon--muted" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <h3>More on the way</h3>
+          <p class="app-desc">New apps land here as they ship.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/about-william-herrmann.html">About</a>
+      <a href="https://github.com/willherr" target="github">GitHub</a>
+      <a href="https://www.linkedin.com/in/will-herrmann-155a09103/" target="linkedin">LinkedIn</a>
+      <a href="https://www.reddit.com/user/herrmanw/" target="reddit">Reddit</a>
+      <a href="mailto:me@will-i-am.dev">me@will-i-am.dev</a>
+    </div>
+    <p class="copyright">© 2026 Will Herrmann</p>
+  </footer>
 
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4d72da7d2e6e4f7597ea4574a144dad4"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

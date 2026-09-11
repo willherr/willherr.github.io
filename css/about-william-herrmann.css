@@ -1,99 +1,124 @@
-@import '/css/_variables.css?v=2';
-@import '/css/_styles.css?v=2';
+@import '/css/_brand.css?v=1';
 
-body {
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
+main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
 }
 
-.resume {
-    width: min(100%, 8.5in);
-    min-height: 11in;
-    padding: .5in;
-    background-color: white;
-    border: 1px solid lightgray;
-}
-
-/* header */
-header {
+.story-intro {
     display: flex;
+    align-items: center;
     gap: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-@media screen and (max-width: 700px) {
-    header {
-        flex-wrap: wrap-reverse;
-    }
+.headshot {
+    width: 140px;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    flex-shrink: 0;
 }
 
-header img {
-    border-radius: 15px;
-    box-shadow: 5px 5px 2px var(--primary-color);
+.eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--blue);
 }
 
-h1.title {
-    margin-top: 0;
+.story-intro h1 {
+    margin: 0 0 0.5rem;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.lede {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.story-body {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
 }
 
-h2 {
-    margin-bottom: 0;
+.story-body p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.75;
+    color: oklch(84% 0.006 250);
 }
 
-footer {
+.background h2 {
+    margin: 0 0 1.5rem;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: end;
-    color: dimgray;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
-span.br {
-    display: block;
-    padding: .25rem 0;
-}
-
-.subtitle {
-    color: var(--primary-color);
-    margin-bottom: 0;
-}
-
-
-/* contact-info */
-.contact-info {
-    margin: 1rem -.5in;
-    padding: 0 .5in;
-    line-height: 2rem;
-    background-color: var(--accent-color);
-}
-
-.contact-info div {
-    text-align: center;
-}
-
-.contact-info b {
-    color: var(--accent-contrast);
-}
-
-.contact-info a {
-    color: var(--accent-contrast);
-    text-decoration: none;
-}
-
-.contact-info .row {
+.timeline-card {
+    padding: 1.25rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
     display: flex;
     flex-wrap: wrap;
-    white-space: nowrap;
-}
-
-.contact-info .row>* {
-    flex: 1;
-    padding: 0 10px;
-}
-
-
-.justify-between {
-    display: flex;
+    align-items: baseline;
     justify-content: space-between;
-    align-items: flex-end;
+    gap: 0.25rem 1rem;
+    color: inherit;
+}
+
+.timeline-card--linked {
+    position: relative;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.timeline-card--linked:hover {
+    color: inherit;
+    transform: translateY(-3px);
+    border-color: oklch(from var(--green) l c h / 0.6);
+    box-shadow: 0 10px 24px oklch(0% 0 0 / 0.35), 0 0 0 1px oklch(from var(--green) l c h / 0.15);
+}
+
+.timeline-role {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    flex-basis: 100%;
+}
+
+.timeline-org {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.timeline-date {
+    font-size: 13px;
+    color: var(--text-mutedmore);
+}
+
+@media screen and (max-width: 560px) {
+    .story-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
 }
