@@ -58,6 +58,11 @@ main {
     color: oklch(84% 0.006 250);
 }
 
+.story-body .signature {
+    font-style: italic;
+    color: var(--green);
+}
+
 .background h2 {
     margin: 0 0 1.5rem;
     font-size: 22px;
