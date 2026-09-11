@@ -1,19 +1,19 @@
 {
-    "name": "Will's Site",
-    "short_name": "Will's Site",
+    "name": "will-i-am.dev",
+    "short_name": "will-i-am.dev",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/content/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/content/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#0b0e11",
+    "background_color": "#0b0e11",
     "display": "standalone"
 }

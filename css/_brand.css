@@ -1,0 +1,136 @@
+/* Shared design tokens, nav, and footer for the will-i-am.dev brand.
+   Imported by every page's own stylesheet so nav/footer stay in sync. */
+
+:root {
+    --bg: oklch(14% 0.014 250);
+    --card-bg: oklch(19% 0.016 250);
+    --card-bg-soft: oklch(17% 0.014 250);
+    --card-border: oklch(30% 0.02 250);
+    --card-border-soft: oklch(26% 0.02 250);
+    --text: oklch(96% 0.004 250);
+    --text-muted: oklch(72% 0.01 250);
+    --text-mutedmore: oklch(60% 0.01 250);
+    --text-faint: oklch(50% 0.008 250);
+    --green: #00e0ba;
+    --blue: #00bfeb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: auto;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+body {
+    display: block;
+    margin: 0;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: oklch(from var(--green) calc(l + 0.06) c h);
+}
+
+/* header */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.75rem 3.5rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text);
+}
+
+.brand:hover {
+    color: var(--text);
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.site-header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.site-header nav a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.site-header nav a:hover {
+    color: var(--green);
+}
+
+/* footer */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem 3.5rem;
+    border-top: 1px solid oklch(24% 0.014 250);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: var(--text-mutedmore);
+    white-space: nowrap;
+}
+
+.footer-links a:hover {
+    color: var(--green);
+}
+
+.copyright {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-faint);
+}
+
+@media screen and (max-width: 640px) {
+    .site-header,
+    .site-footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
