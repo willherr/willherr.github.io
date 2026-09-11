@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://will-i-am.dev/sitemap.xml
